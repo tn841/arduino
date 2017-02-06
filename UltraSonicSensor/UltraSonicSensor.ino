@@ -11,10 +11,6 @@ void setup() {
 	pinMode(trigPin, OUTPUT);
 	pinMode(echoPin, INPUT);
 
-	pinMode(9, OUTPUT);
-	pinMode(10, OUTPUT);
-	pinMode(11, OUTPUT);
-	pinMode(12, OUTPUT);
 }
 
 //초음파를 보낸다. 다 보내면 echo가 HIGH(신호받기) 상태로 대기
@@ -36,32 +32,19 @@ void loop() {
 	Serial.print("\ndistance:");
 	Serial.print(distance);
 	Serial.println("cm\n");
-	delay(500);
 
-/*
-	int cdistance=constrain(distance,0,30);
-	Serial.print("\nCDIstance:");
+
+
+	int cdistance=constrain(distance,10,50);
+	Serial.print("\ncdIstance:");
 	Serial.print(cdistance);
 	Serial.println("cm\n");
+	int delayDuration = map(cdistance,10,50,0,700);
 
+	tone(8,200,50);
+	delay(delayDuration);
 
-	int ledData=map(cdistance,0,20,0,255);
-	int ledDuration=map(cdistance,0,20,0,700);
-
-	analogWrite(9, ledData);
-	analogWrite(10,255);
-	analogWrite(11,255);
-	delay(ledDuration);
-
-	analogWrite(9, 255);
-	analogWrite(10,255);
-	analogWrite(11,255);
-	delay(ledDuration);
-
-	tone(8,10,50);
-	delay(ledDuration);
 	//noTone(8);
-*/
 
 
 }
